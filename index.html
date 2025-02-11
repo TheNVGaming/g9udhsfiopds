@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For you</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Indie+Flower&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffe6e6;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Dancing Script', cursive;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #ff4d4d;
+        }
+        .promise {
+            font-size: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1.5s ease-in-out forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>💖 Happy Promise Day 💖</h1>
+    <div id="promises"></div>
+
+    <script>
+        const promises = [
+            "I promise to always stand by your side!",
+            "I promise to make you smile every day! 😊",
+            "I promise to listen and understand you!",
+            "I promise to be with you even at your lowest phase!",
+            "I promise to love you ❤️"
+        ];
+
+        const container = document.getElementById("promises");
+
+        promises.forEach((text, index) => {
+            setTimeout(() => {
+                let promiseText = document.createElement("p");
+                promiseText.classList.add("promise");
+                promiseText.textContent = text;
+                promiseText.style.animationDelay = `${index * 2}s`;
+                container.appendChild(promiseText);
+            }, index * 2000);
+        });
+    </script>
+</body>
+</html>
